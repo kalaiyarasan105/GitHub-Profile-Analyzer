@@ -987,6 +987,25 @@ body {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
 }
 
+/* Page break controls - Keep sections together */
+.pdf-mode .profile-card,
+.pdf-mode .dashboard-section,
+.pdf-mode .charts-section,
+.pdf-mode .repository-section {
+    page-break-inside: avoid !important;
+    page-break-after: auto !important;
+}
+
+.pdf-mode .charts-section {
+    page-break-before: always !important;
+    margin-top: 20px !important;
+}
+
+.pdf-mode .repository-section {
+    page-break-before: always !important;
+    margin-top: 20px !important;
+}
+
 /* Titles - Extra bold */
 .pdf-mode .profile-name,
 .pdf-mode .section-title,
@@ -998,6 +1017,7 @@ body {
     font-weight: 900 !important;
     font-size: 2rem !important;
     text-align: center !important;
+    page-break-after: avoid !important;
 }
 
 /* Values - Extra bold and large */
@@ -1085,6 +1105,7 @@ body {
 /* Repository cards */
 .pdf-mode .repo-card {
     padding: 25px !important;
+    page-break-inside: avoid !important;
 }
 
 .pdf-mode .repo-name {
@@ -1099,6 +1120,11 @@ body {
     font-size: 1.5rem !important;
     font-weight: 900 !important;
     margin-bottom: 15px !important;
+}
+
+/* Chart cards - keep together */
+.pdf-mode .chart-card {
+    page-break-inside: avoid !important;
 }
 
 /* Hide unnecessary elements */
