@@ -1,0 +1,960 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Animated Background */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.floating-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    animation: float 20s infinite ease-in-out;
+}
+
+.circle1 {
+    width: 300px;
+    height: 300px;
+    top: -100px;
+    left: -100px;
+    animation-delay: 0s;
+}
+
+.circle2 {
+    width: 200px;
+    height: 200px;
+    top: 50%;
+    right: -50px;
+    animation-delay: 3s;
+}
+
+.circle3 {
+    width: 250px;
+    height: 250px;
+    bottom: -100px;
+    left: 30%;
+    animation-delay: 6s;
+}
+
+.circle4 {
+    width: 150px;
+    height: 150px;
+    top: 20%;
+    right: 20%;
+    animation-delay: 9s;
+}
+
+.circle5 {
+    width: 180px;
+    height: 180px;
+    bottom: 20%;
+    right: 10%;
+    animation-delay: 12s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(50px, -50px) rotate(90deg);
+    }
+    50% {
+        transform: translate(0, -100px) rotate(180deg);
+    }
+    75% {
+        transform: translate(-50px, -50px) rotate(270deg);
+    }
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 80px 20px 40px;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.github-icon {
+    animation: pulse 2s infinite;
+    margin-bottom: 30px;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    color: white;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
+    animation: fadeInDown 1s ease-out;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Search Section */
+.search-section {
+    position: relative;
+    z-index: 1;
+    padding: 40px 20px;
+}
+
+.search-container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.search-box {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+#username {
+    flex: 1;
+    padding: 20px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+#username:focus {
+    outline: none;
+    box-shadow: 0 8px 32px rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.analyze-btn {
+    padding: 20px 40px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 8px 32px rgba(245, 87, 108, 0.4);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.analyze-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(245, 87, 108, 0.6);
+}
+
+.analyze-btn:active {
+    transform: translateY(-1px);
+}
+
+.analyze-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.analyze-btn:active::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-text, .btn-icon {
+    position: relative;
+    z-index: 1;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    display: none;
+    text-align: center;
+    padding: 20px;
+}
+
+.loading-spinner.show {
+    display: block;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 15px;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-top: 5px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-spinner p {
+    color: white;
+    font-size: 16px;
+}
+
+/* Error Message */
+.error-message {
+    display: none;
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(255, 59, 48, 0.9);
+    color: white;
+    border-radius: 15px;
+    text-align: center;
+    animation: shake 0.5s;
+    position: relative;
+    z-index: 1;
+}
+
+.error-message.show {
+    display: block;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+/* Results Container */
+.results-container {
+    display: none;
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.results-container.show {
+    display: block;
+}
+
+/* Glassmorphism Card */
+.glass-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Fade-in Animation */
+.fade-in {
+    animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Profile Card */
+.profile-card {
+    padding: 40px;
+    margin-bottom: 30px;
+}
+
+.profile-header {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+    align-items: center;
+}
+
+.profile-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.profile-info {
+    flex: 1;
+}
+
+.profile-name {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.profile-username {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 15px;
+}
+
+.profile-bio {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.profile-details {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.detail-item {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+}
+
+.profile-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-value {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Section Title */
+.section-title {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Dashboard Section */
+.dashboard-section {
+    margin-bottom: 40px;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.dashboard-card {
+    padding: 35px;
+    text-align: center;
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.card-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.card-label {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Charts Section */
+.charts-section {
+    margin-bottom: 40px;
+}
+
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+}
+
+.chart-card {
+    padding: 30px;
+}
+
+.chart-title {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Repository Section */
+.repository-section {
+    margin-bottom: 40px;
+}
+
+.repository-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 25px;
+}
+
+.repo-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 25px;
+    transition: all 0.3s ease;
+}
+
+.repo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.repo-name {
+    font-size: 1.3rem;
+    color: white;
+    margin-bottom: 10px;
+    text-decoration: none;
+    display: block;
+    font-weight: 600;
+}
+
+.repo-name:hover {
+    color: #f5576c;
+}
+
+.repo-description {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.repo-meta {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.repo-meta span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Download Section */
+.download-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.download-btn {
+    padding: 20px 40px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.download-btn:hover {
+    transform: translateY(-3px);
+}
+
+/* Footer */
+.footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 30px 20px;
+    color: white;
+    font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-name {
+        font-size: 2rem;
+    }
+
+    .profile-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .charts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .repository-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* PDF Specific Styles */
+@media print {
+    body {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    .background,
+    .hero-section,
+    .search-section,
+    .footer,
+    .download-section {
+        display: none !important;
+    }
+    
+    .results-container {
+        display: block !important;
+        max-width: 100%;
+        padding: 0;
+    }
+    
+    .glass-card {
+        page-break-inside: avoid;
+        margin-bottom: 20px;
+    }
+}
+
+/* Download Button Styles */
+.download-section .download-btn {
+    background: linear-gradient(135deg, #2ea44f 0%, #22863a 100%);
+    box-shadow: 0 8px 32px rgba(46, 164, 79, 0.4);
+}
+
+.download-section .download-btn:hover {
+    box-shadow: 0 12px 40px rgba(46, 164, 79, 0.6);
+}
+
+.download-section .download-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* PDF Loading Overlay */
+.pdf-loading-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(102, 126, 234, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+.pdf-loading-overlay.show {
+    display: flex;
+}
+
+.pdf-loading-content {
+    text-align: center;
+    padding: 40px;
+    max-width: 500px;
+}
+
+.pdf-github-icon {
+    animation: pulse 2s infinite;
+    margin-bottom: 30px;
+}
+
+.pdf-spinner {
+    width: 80px;
+    height: 80px;
+    margin: 30px auto;
+    border: 8px solid rgba(255, 255, 255, 0.3);
+    border-top: 8px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.pdf-loading-content h2 {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.pdf-loading-content p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.pdf-progress {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.pdf-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);
+    border-radius: 10px;
+    animation: progress 3s ease-in-out infinite;
+}
+
+@keyframes progress {
+    0% {
+        width: 0%;
+    }
+    50% {
+        width: 70%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+
+/* PDF Mode - Solid backgrounds for better PDF rendering */
+.pdf-mode {
+    background: white !important;
+}
+
+.pdf-mode .glass-card,
+.pdf-mode .profile-card,
+.pdf-mode .dashboard-card,
+.pdf-mode .chart-card,
+.pdf-mode .repo-card {
+    background: white !important;
+    backdrop-filter: none !important;
+    border: 3px solid #000000 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+.pdf-mode .profile-name,
+.pdf-mode .section-title,
+.pdf-mode .chart-title {
+    color: #000000 !important;
+    font-weight: 900 !important;
+}
+
+.pdf-mode .profile-username,
+.pdf-mode .profile-bio,
+.pdf-mode .profile-details,
+.pdf-mode .detail-item,
+.pdf-mode .stat-label,
+.pdf-mode .card-label,
+.pdf-mode .repo-description,
+.pdf-mode .repo-meta {
+    color: #000000 !important;
+    font-weight: 600 !important;
+}
+
+.pdf-mode .stat-value,
+.pdf-mode .card-value {
+    color: #000000 !important;
+    font-weight: 900 !important;
+    font-size: 1.2em !important;
+}
+
+.pdf-mode .repo-name {
+    color: #000000 !important;
+    font-weight: 700 !important;
+}
+
+.pdf-mode .background,
+.pdf-mode .floating-circle {
+    display: none !important;
+}
+
+.pdf-mode .results-container {
+    background: white !important;
+}
+
+.pdf-mode .card-icon {
+    opacity: 1 !important;
+    font-size: 3rem !important;
+}
+
+
+
+/* PDF Mode - Perfect alignment and same brightness for all text */
+.pdf-mode {
+    background: white !important;
+}
+
+.pdf-mode .glass-card,
+.pdf-mode .profile-card,
+.pdf-mode .dashboard-card,
+.pdf-mode .chart-card,
+.pdf-mode .repo-card {
+    background: white !important;
+    backdrop-filter: none !important;
+    border: 3px solid #000000 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* ALL TEXT - EXACT SAME BRIGHTNESS */
+.pdf-mode *,
+.pdf-mode .profile-name,
+.pdf-mode .section-title,
+.pdf-mode .chart-title,
+.pdf-mode .profile-username,
+.pdf-mode .profile-bio,
+.pdf-mode .profile-details,
+.pdf-mode .detail-item,
+.pdf-mode .stat-label,
+.pdf-mode .card-label,
+.pdf-mode .repo-description,
+.pdf-mode .repo-meta,
+.pdf-mode .repo-name,
+.pdf-mode .stat-value,
+.pdf-mode .card-value,
+.pdf-mode h1,
+.pdf-mode h2,
+.pdf-mode h3,
+.pdf-mode h4,
+.pdf-mode p,
+.pdf-mode span,
+.pdf-mode a {
+    color: #000000 !important;
+    font-weight: 700 !important;
+}
+
+/* Section titles - Centered */
+.pdf-mode .section-title {
+    text-align: center !important;
+    font-size: 2rem !important;
+    font-weight: 900 !important;
+    margin: 30px 0 20px 0 !important;
+}
+
+/* Profile name */
+.pdf-mode .profile-name {
+    font-size: 2rem !important;
+    font-weight: 900 !important;
+}
+
+/* Values - Centered */
+.pdf-mode .stat-value,
+.pdf-mode .card-value {
+    font-size: 2.5rem !important;
+    font-weight: 900 !important;
+    display: block !important;
+    text-align: center !important;
+}
+
+/* Labels - Centered */
+.pdf-mode .stat-label,
+.pdf-mode .card-label {
+    display: block !important;
+    text-align: center !important;
+    font-size: 1rem !important;
+}
+
+/* Profile stats alignment */
+.pdf-mode .profile-stats {
+    border-top: 3px solid #000 !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 20px !important;
+    padding-top: 20px !important;
+}
+
+.pdf-mode .stat-item {
+    text-align: center !important;
+}
+
+/* Dashboard cards alignment */
+.pdf-mode .dashboard-card {
+    text-align: center !important;
+    padding: 30px !important;
+}
+
+.pdf-mode .card-icon {
+    font-size: 3rem !important;
+    margin-bottom: 15px !important;
+    display: block !important;
+    text-align: center !important;
+}
+
+/* Chart titles centered */
+.pdf-mode .chart-title {
+    text-align: center !important;
+    font-size: 1.5rem !important;
+    margin-bottom: 15px !important;
+}
+
+/* Profile header alignment */
+.pdf-mode .profile-header {
+    display: flex !important;
+    gap: 30px !important;
+    align-items: center !important;
+    margin-bottom: 20px !important;
+}
+
+.pdf-mode .profile-avatar {
+    width: 150px !important;
+    height: 150px !important;
+    border-radius: 50% !important;
+    border: 5px solid #000 !important;
+}
+
+.pdf-mode .profile-info {
+    flex: 1 !important;
+}
+
+/* Repository cards */
+.pdf-mode .repo-card {
+    padding: 25px !important;
+}
+
+.pdf-mode .repo-name {
+    font-size: 1.3rem !important;
+    margin-bottom: 10px !important;
+}
+
+/* Hide unnecessary elements */
+.pdf-mode .background,
+.pdf-mode .floating-circle,
+.pdf-mode .hero-section,
+.pdf-mode .search-section,
+.pdf-mode .footer,
+.pdf-mode .download-section {
+    display: none !important;
+}
+
+.pdf-mode .results-container {
+    background: white !important;
+}
+
+/* Grid layouts */
+.pdf-mode .dashboard-grid,
+.pdf-mode .charts-grid,
+.pdf-mode .repository-grid {
+    gap: 20px !important;
+}
+
+/* Ensure charts are visible */
+.pdf-mode canvas,
+.pdf-mode img {
+    visibility: visible !important;
+    opacity: 1 !important;
+}

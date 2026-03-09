@@ -1,0 +1,24 @@
+{
+  "name": "github-profile-analyzer",
+  "version": "1.0.0",
+  "description": "GitHub Profile Analyzer - Analyze and generate reports for GitHub profiles",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "github",
+    "profile",
+    "analyzer",
+    "pdf",
+    "report"
+  ],
+  "author": "Kalaiyarasan",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
