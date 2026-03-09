@@ -958,3 +958,173 @@ body {
     visibility: visible !important;
     opacity: 1 !important;
 }
+
+
+
+/* PDF Mode - ALL TEXT EQUALLY DARK AND BOLD */
+.pdf-mode {
+    background: white !important;
+}
+
+/* Force ALL elements to be black and bold */
+.pdf-mode *,
+.pdf-mode *::before,
+.pdf-mode *::after {
+    color: #000000 !important;
+    font-weight: 700 !important;
+    opacity: 1 !important;
+}
+
+/* Cards */
+.pdf-mode .glass-card,
+.pdf-mode .profile-card,
+.pdf-mode .dashboard-card,
+.pdf-mode .chart-card,
+.pdf-mode .repo-card {
+    background: white !important;
+    backdrop-filter: none !important;
+    border: 3px solid #000000 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Titles - Extra bold */
+.pdf-mode .profile-name,
+.pdf-mode .section-title,
+.pdf-mode .chart-title,
+.pdf-mode h1,
+.pdf-mode h2,
+.pdf-mode h3 {
+    color: #000000 !important;
+    font-weight: 900 !important;
+    font-size: 2rem !important;
+    text-align: center !important;
+}
+
+/* Values - Extra bold and large */
+.pdf-mode .stat-value,
+.pdf-mode .card-value {
+    color: #000000 !important;
+    font-weight: 900 !important;
+    font-size: 2.5rem !important;
+    display: block !important;
+    text-align: center !important;
+}
+
+/* Labels - Bold */
+.pdf-mode .stat-label,
+.pdf-mode .card-label {
+    color: #000000 !important;
+    font-weight: 700 !important;
+    font-size: 1rem !important;
+    display: block !important;
+    text-align: center !important;
+}
+
+/* All other text */
+.pdf-mode .profile-username,
+.pdf-mode .profile-bio,
+.pdf-mode .profile-details,
+.pdf-mode .detail-item,
+.pdf-mode .repo-description,
+.pdf-mode .repo-meta,
+.pdf-mode .repo-name,
+.pdf-mode p,
+.pdf-mode span,
+.pdf-mode div,
+.pdf-mode a {
+    color: #000000 !important;
+    font-weight: 700 !important;
+}
+
+/* Profile stats alignment */
+.pdf-mode .profile-stats {
+    border-top: 3px solid #000 !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 20px !important;
+    padding-top: 20px !important;
+}
+
+.pdf-mode .stat-item {
+    text-align: center !important;
+}
+
+/* Dashboard cards */
+.pdf-mode .dashboard-card {
+    text-align: center !important;
+    padding: 30px !important;
+}
+
+.pdf-mode .card-icon {
+    font-size: 3rem !important;
+    margin-bottom: 15px !important;
+    display: block !important;
+    text-align: center !important;
+    opacity: 1 !important;
+}
+
+/* Profile header */
+.pdf-mode .profile-header {
+    display: flex !important;
+    gap: 30px !important;
+    align-items: center !important;
+    margin-bottom: 20px !important;
+}
+
+.pdf-mode .profile-avatar {
+    width: 150px !important;
+    height: 150px !important;
+    border-radius: 50% !important;
+    border: 5px solid #000 !important;
+}
+
+.pdf-mode .profile-info {
+    flex: 1 !important;
+}
+
+/* Repository cards */
+.pdf-mode .repo-card {
+    padding: 25px !important;
+}
+
+.pdf-mode .repo-name {
+    font-size: 1.3rem !important;
+    font-weight: 900 !important;
+    margin-bottom: 10px !important;
+}
+
+/* Chart titles */
+.pdf-mode .chart-title {
+    text-align: center !important;
+    font-size: 1.5rem !important;
+    font-weight: 900 !important;
+    margin-bottom: 15px !important;
+}
+
+/* Hide unnecessary elements */
+.pdf-mode .background,
+.pdf-mode .floating-circle,
+.pdf-mode .hero-section,
+.pdf-mode .search-section,
+.pdf-mode .footer,
+.pdf-mode .download-section {
+    display: none !important;
+}
+
+.pdf-mode .results-container {
+    background: white !important;
+}
+
+/* Grid layouts */
+.pdf-mode .dashboard-grid,
+.pdf-mode .charts-grid,
+.pdf-mode .repository-grid {
+    gap: 20px !important;
+}
+
+/* Ensure charts and images are visible */
+.pdf-mode canvas,
+.pdf-mode img {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
